@@ -1,5 +1,6 @@
+
 #include<bits/stdc++.h>
-class LRUCache
+class LFUCache
 {
 public:
     class node{
@@ -19,14 +20,14 @@ public:
     node *tail = new node(-1,-1);
     int cap;
     unordered_map < int, node * > m;
-    LRUCache(int capacity)
+    LFUCache(int capacity)
     {
-        // Write your code here
+        // Write your code here.
         cap = capacity;
         head->next = tail;
         tail->prev = head;
     }
-    void deletenode(node *del){
+void deletenode(node *del){
         del->prev->next = del->next;
         del->next->prev = del->prev;
     }
